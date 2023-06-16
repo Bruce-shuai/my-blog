@@ -1,6 +1,7 @@
 export type ButtonType = 'primary' | 'tag' | 'tagWithNumber';
 interface ButtonProps {
   buttonType: ButtonType;
+  className?: string;
   children: React.ReactNode;
 }
 
@@ -20,7 +21,9 @@ export default function CustomButton(btnProps: ButtonProps) {
   }
   console.log(btnType);
   return (
-    <div className={`border rounded-md cursor-pointer px-4 py-1 ${btnClass}`}>
+    <div
+      className={`border rounded-md cursor-pointer px-4 py-1 ${btnClass} ${btnProps.className}`}
+    >
       {btnProps.children}
       {btnType === 'tagWithNumber' && (
         <span className="text-sm flex justify-center items-center w-8 text-white bg-slate-700 h-[34px]  p-2 rounded-e-md absolute -right-7 -top-[1px]">
